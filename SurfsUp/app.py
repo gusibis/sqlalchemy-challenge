@@ -2,13 +2,9 @@
 from flask import Flask, jsonify
 from sqlalchemy import create_engine, func
 from sqlalchemy.orm import sessionmaker
-from datetime import datetime, timedelta
 from flask import Flask, jsonify, request
-from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.ext.automap import automap_base
-from sqlalchemy import Column, Integer, String, Float
 from sqlalchemy import create_engine, inspect, func
-import numpy as np
 import datetime as dt
 ###################################################################################################################
 # Database Setup
@@ -123,7 +119,6 @@ def start_end(start, end):
     l.append("Min Temp " + str(temp[0][0]))
     l.append("Ave Temp " + str(round(temp[0][1], 2)))
     l.append("Max Temp " + str(temp[0][2]))
-
     return jsonify(l)
 
 if __name__ == '__main__':
